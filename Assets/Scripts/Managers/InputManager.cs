@@ -17,11 +17,6 @@ public class InputManager : Singleton<InputManager>
             controls = new Controls();
     }
 
-    public IEnumerator GetControlsCoroutine()
-    {
-        yield return new WaitUntil(() => { return this.controls != null; });
-    }
-
     public Controls GetControls()
     {
         if (this.controls == null)

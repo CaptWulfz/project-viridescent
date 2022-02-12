@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.EnhancedTouch;
 
 public class Startup : MonoBehaviour
 {
@@ -8,6 +10,7 @@ public class Startup : MonoBehaviour
 
     private void Start()
     {
+        DontDestroyOnLoad(this);
         StartCoroutine(Initialize());
     }
 
@@ -19,20 +22,26 @@ public class Startup : MonoBehaviour
     {
         DataManager.Instance.Initialize();
         yield return new WaitUntil(() => { return DataManager.Instance.IsDone; });
-        splashScreen.SetLoadingProgress(0.33f);
-
+        this.splashScreen.SetLoadingProgress(0.25f);
 
         AudioManager.Instance.Initialize();
         yield return new WaitUntil(() => { return AudioManager.Instance.IsDone; });
-        splashScreen.SetLoadingProgress(0.66f);
+        this.splashScreen.SetLoadingProgress(0.50f);
+
+        PopupManager.Instance.Initialize();
+        yield return new WaitUntil(() => { return PopupManager.Instance.IsDone; });
+        this.splashScreen.SetLoadingProgress(0.75f);
 
         GameManager.Instance.Initialize();
         yield return new WaitUntil(() => { return GameManager.Instance.IsDone; });
-        splashScreen.SetLoadingProgress(1.0f);
+        this.splashScreen.SetLoadingProgress(1.0f);
 
         yield return new WaitForSeconds(2f);
 
         this.splashScreen.gameObject.SetActive(false);
+        Destroy(this.splashScreen.gameObject);
+        GameManager.Instance.ToggleMainHud(true);
         GameManager.Instance.PlayMainTheme();
+        
     }
 }

@@ -44,6 +44,15 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""TouchPress"",
+                    ""type"": ""Button"",
+                    ""id"": ""e0c27726-829f-4c11-92d2-b75edf4b3445"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -68,6 +77,17 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""action"": ""Test2"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""67e6b861-216f-4c92-87e9-c9818df3a334"",
+                    ""path"": ""<Touchscreen>/primaryTouch/tap"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""TouchPress"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -78,6 +98,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         m_Test = asset.FindActionMap("Test", throwIfNotFound: true);
         m_Test_Test = m_Test.FindAction("Test", throwIfNotFound: true);
         m_Test_Test2 = m_Test.FindAction("Test2", throwIfNotFound: true);
+        m_Test_TouchPress = m_Test.FindAction("TouchPress", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -139,12 +160,14 @@ public partial class @Controls : IInputActionCollection2, IDisposable
     private ITestActions m_TestActionsCallbackInterface;
     private readonly InputAction m_Test_Test;
     private readonly InputAction m_Test_Test2;
+    private readonly InputAction m_Test_TouchPress;
     public struct TestActions
     {
         private @Controls m_Wrapper;
         public TestActions(@Controls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Test => m_Wrapper.m_Test_Test;
         public InputAction @Test2 => m_Wrapper.m_Test_Test2;
+        public InputAction @TouchPress => m_Wrapper.m_Test_TouchPress;
         public InputActionMap Get() { return m_Wrapper.m_Test; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -160,6 +183,9 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @Test2.started -= m_Wrapper.m_TestActionsCallbackInterface.OnTest2;
                 @Test2.performed -= m_Wrapper.m_TestActionsCallbackInterface.OnTest2;
                 @Test2.canceled -= m_Wrapper.m_TestActionsCallbackInterface.OnTest2;
+                @TouchPress.started -= m_Wrapper.m_TestActionsCallbackInterface.OnTouchPress;
+                @TouchPress.performed -= m_Wrapper.m_TestActionsCallbackInterface.OnTouchPress;
+                @TouchPress.canceled -= m_Wrapper.m_TestActionsCallbackInterface.OnTouchPress;
             }
             m_Wrapper.m_TestActionsCallbackInterface = instance;
             if (instance != null)
@@ -170,6 +196,9 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @Test2.started += instance.OnTest2;
                 @Test2.performed += instance.OnTest2;
                 @Test2.canceled += instance.OnTest2;
+                @TouchPress.started += instance.OnTouchPress;
+                @TouchPress.performed += instance.OnTouchPress;
+                @TouchPress.canceled += instance.OnTouchPress;
             }
         }
     }
@@ -178,5 +207,6 @@ public partial class @Controls : IInputActionCollection2, IDisposable
     {
         void OnTest(InputAction.CallbackContext context);
         void OnTest2(InputAction.CallbackContext context);
+        void OnTouchPress(InputAction.CallbackContext context);
     }
 }

@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - MainCanvas
+  - PopupCanvas
   layers:
   - Default
   - TransparentFX
@@ -47,9 +49,15 @@ TagManager:
   - name: Background Deco
     uniqueID: 1648813159
     locked: 0
+  - name: Plantable Spots
+    uniqueID: 4266726157
+    locked: 0
   - name: Florae
     uniqueID: 2646533491
     locked: 0
   - name: Foreground Deco
     uniqueID: 2111220841
+    locked: 0
+  - name: UI
+    uniqueID: 2786197449
     locked: 0
