@@ -6,9 +6,9 @@ using UnityEditor;
 public class AudioManager : Singleton<AudioManager>
 {
     // File path of the Audio Map Asset File
-    private const string AUDIO_MAP_PATH = "Assets/AssetFiles/AudioMap.asset";
+    private const string AUDIO_MAP_PATH = "AssetFiles/AudioMap";
 
-    private AudioMap audioMap;
+    [SerializeField] AudioMap audioMap;
 
     private Dictionary<string, AudioSource> sfxSources;
     private Dictionary<string, AudioSource> musicSources;
@@ -25,7 +25,7 @@ public class AudioManager : Singleton<AudioManager>
     #region Initialization
     public void Initialize()
     {
-        audioMap = (AudioMap)AssetDatabase.LoadAssetAtPath(AUDIO_MAP_PATH, typeof(AudioMap));
+        this.audioMap = Resources.Load<AudioMap>(AUDIO_MAP_PATH);
 
         if (sfxSources == null)
             sfxSources = new Dictionary<string, AudioSource>();
