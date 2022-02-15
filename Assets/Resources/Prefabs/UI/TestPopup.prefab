@@ -126,6 +126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 3170520512634207751}
+  overlay: {fileID: 0}
   frontText: {fileID: 8110401481631712985}
   confirmButtonLabel: {fileID: 8110401480839172390}
 --- !u!1 &8110401480839172384
@@ -329,8 +330,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 8110401480717577612}
-        m_TargetAssemblyTypeName: TestPopup, Assembly-CSharp
-        m_MethodName: Hide
+        m_TargetAssemblyTypeName: Popup, Assembly-CSharp
+        m_MethodName: OnCloseButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

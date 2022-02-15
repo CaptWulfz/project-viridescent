@@ -15,7 +15,7 @@ public class TestPopup : Popup
         base.Show();
     }
 
-    public override void Hide()
+    protected override void Hide()
     {
         base.Hide();
     }

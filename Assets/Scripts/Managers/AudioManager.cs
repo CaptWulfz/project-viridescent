@@ -39,6 +39,13 @@ public class AudioManager : Singleton<AudioManager>
         if (music == null)
             music = new Dictionary<string, AudioClip>();
 
+        StartCoroutine(WaitForAudioMap());
+    }
+
+    private IEnumerator WaitForAudioMap()
+    {
+        yield return new WaitUntil(() => { return this.audioMap != null; });
+
         sfx.Clear();
         foreach (AudioMap.AudioEntry entry in this.audioMap.SFX)
         {
@@ -51,12 +58,6 @@ public class AudioManager : Singleton<AudioManager>
             this.music.Add(entry.key, entry.source);
         }
 
-        StartCoroutine(WaitForAudioMap());
-    }
-
-    private IEnumerator WaitForAudioMap()
-    {
-        yield return new WaitUntil(() => { return this.audioMap != null; });
         this.isDone = true;
     }
     #endregion

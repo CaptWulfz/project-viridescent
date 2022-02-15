@@ -28,12 +28,20 @@ public class Popup : MonoBehaviour
     /// <summary>
     /// Hides the Popup. Plays the Hide Animation first before destroying the Popup
     /// </summary>
-    public virtual void Hide()
+    protected virtual void Hide()
     {
         this.anim.Play(POPUP_CLOSE);
         StartCoroutine(AnimationHandler.WaitForAnimation(this.anim, () =>
         {
             PopupManager.Instance.HidePopup(this.gameObject);
         }));
+    }
+
+    /// <summary>
+    /// Function to be called when the user interacts with the Close Button
+    /// </summary>
+    public virtual void OnCloseButton()
+    {
+        Hide();
     }
 }

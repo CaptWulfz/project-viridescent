@@ -38,10 +38,9 @@ public class Startup : MonoBehaviour
 
         yield return new WaitForSeconds(2f);
 
-        this.splashScreen.gameObject.SetActive(false);
-        Destroy(this.splashScreen.gameObject);
+        this.splashScreen.Hide();
         GameManager.Instance.ToggleMainHud(true);
         GameManager.Instance.PlayMainTheme();
-        
+        this.gameObject.GetComponent<FocusHandler>().Initialize();
     }
 }

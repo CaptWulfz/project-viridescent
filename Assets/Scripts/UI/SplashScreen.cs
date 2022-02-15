@@ -17,6 +17,15 @@ public class SplashScreen : MonoBehaviour
         this.loadingBar.value = value;
     }
 
+    /// <summary>
+    /// Hides and destroys the Splash Screen
+    /// </summary>
+    public void Hide()
+    {
+        this.gameObject.SetActive(false);
+        Destroy(this.gameObject);
+    }
+
     #region On Value Changed
     public void OnLoadingValueChanged()
     {
