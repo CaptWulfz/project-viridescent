@@ -111,7 +111,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &8110401480717577612
 MonoBehaviour:
@@ -126,7 +126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 3170520512634207751}
-  overlay: {fileID: 0}
+  overlay: {fileID: 5905996409374901014}
   frontText: {fileID: 8110401481631712985}
   confirmButtonLabel: {fileID: 8110401480839172390}
 --- !u!1 &8110401480839172384
