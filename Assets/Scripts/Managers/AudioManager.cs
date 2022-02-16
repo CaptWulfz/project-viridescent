@@ -67,7 +67,7 @@ public class AudioManager : Singleton<AudioManager>
     /// Registers a specific Audio Source to an Audio Group given their respective keys
     /// </summary>
     /// <param name="audioGroupKey">Name of the Audio Group</param>
-    /// <param name="sourceKey">Name of the Audio Source. Must be Unique</param>
+    /// <param name="sourceKey">Name of the Audio Source. Must be nique</param>
     /// <param name="source">The Audio Source File to be registered to an Audio Group</param>
     public void RegisterAudioSource(string audioGroupKey, string sourceKey, AudioSource source)
     {
@@ -77,6 +77,19 @@ public class AudioManager : Singleton<AudioManager>
             audioGroup[sourceKey] = source;
         else
             audioGroup.Add(sourceKey, source);
+    }
+
+    /// <summary>
+    /// Unregisters a specific Audio Source from an Audio Group given their respective keys
+    /// </summary>
+    /// <param name="audioGroupKey">Name of the Audio Group</param>
+    /// <param name="sourceKey">Name of the Audio Source. Must be unique</param>
+    public void UnregisterAudioSource(string audioGroupKey, string sourceKey)
+    {
+        Dictionary<string, AudioSource> audioGroup = GetAudioGroup(audioGroupKey);
+
+        if (audioGroup.ContainsKey(sourceKey))
+            audioGroup.Remove(sourceKey);
     }
 
     /// <summary>
