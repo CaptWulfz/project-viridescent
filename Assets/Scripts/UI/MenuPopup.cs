@@ -5,23 +5,26 @@ using UnityEngine.UI;
 
 public class MenuPopup : Popup
 {
-    [Header("Popup Components")]
-    [SerializeField] Text frontText;
-
-    #region Overrides
-    public override void Show()
+    #region Unity Button Events
+    public void OnInventoryButtonClicked()
     {
-        base.Show();
+        
     }
-
-    protected override void Hide()
+    
+    public void OnShopButtonClicked()
     {
-        base.Hide();
+        
+    }
+    
+    public void OnDiaryButtonClicked()
+    {
+        
+    }
+    
+    public void OnSettingsButtonClicked()
+    {
+        SettingsPopup popup = PopupManager.Instance.ShowPopup<SettingsPopup>(PopupNames.SETTINGS_POPUP);
+        popup.Show();
     }
     #endregion
-
-    public void Setup(string frontText)
-    {
-        this.frontText.text = frontText;
-    }
 }
