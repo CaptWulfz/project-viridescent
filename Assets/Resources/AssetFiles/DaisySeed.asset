@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: DaisySeed
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Daisy Seed
-  <isStackable>k__BackingField: 1
-  <Value>k__BackingField: 100
+  <IsStackable>k__BackingField: 1
+  <MaxStacks>k__BackingField: 10
+  <Value>k__BackingField: 50
   <Description>k__BackingField: This is Daisy
-  <SeasonTypes>k__BackingField: 00000000
+  <Sprite>k__BackingField: {fileID: 21300000, guid: 36049c9d41a3b534598bbe2d6ce0d66a, type: 3}
+  <SeasonType>k__BackingField: 0
