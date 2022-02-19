@@ -39,7 +39,7 @@ public class PopupManager : Singleton<PopupManager>
         string path = string.Format(POPUPS_PATH, popupName);
         GameObject popup = Resources.Load<GameObject>(path);
         popup.SetActive(false);
-        GameObject deploy = GameObject.Instantiate(popup, popupCanvas.transform);
+        GameObject deploy = GameObject.Instantiate(popup, this.popupCanvas.transform);
 
         return deploy.GetComponent<T>();
     }
@@ -56,6 +56,6 @@ public class PopupManager : Singleton<PopupManager>
 
 public class PopupNames
 {
-    public const string TEST_POPUP = "TestPopup";
     public const string MENU_POPUP = "MenuPopup";
+    public const string SETTINGS_POPUP = "SettingsPopup";
 }

@@ -12,7 +12,6 @@ public class MainHud : MonoBehaviour
     public void OnMenuButtonClicked()
     {
         MenuPopup menu = PopupManager.Instance.ShowPopup<MenuPopup>(PopupNames.MENU_POPUP);
-        menu.Setup("This is the Menu!");
         menu.Show();
     }
 }

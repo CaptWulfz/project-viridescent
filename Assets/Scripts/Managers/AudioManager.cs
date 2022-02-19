@@ -10,11 +10,20 @@ public class AudioManager : Singleton<AudioManager>
 
     [SerializeField] AudioMap audioMap;
 
+    private float globalMusicVolume = 1f;
+    private float globalSfxVolume = 1f;
+
     private Dictionary<string, AudioSource> sfxSources;
     private Dictionary<string, AudioSource> musicSources;
 
     private Dictionary<string, AudioClip> sfx;
     private Dictionary<string, AudioClip> music;
+
+    private bool isMute = false;
+    public bool IsMute
+    {
+        get { return this.isMute; }
+    }
 
     private bool isDone = false;
     public bool IsDone
@@ -102,9 +111,22 @@ public class AudioManager : Singleton<AudioManager>
     {
         AudioSource source = GetAudioSource(audioGroupKey, sourceKey);
         Dictionary<string, AudioClip> dict = GetAudioDict(audioGroupKey);
+        float volume = GetAudioGroupGlobalVolume(audioGroupKey);
 
         source.clip = dict[clipName];
+        source.volume = volume;
         source.Play();
+    }
+
+    public void SetGlobalMute(bool mute)
+    {
+        this.isMute = mute;
+
+        float musicVolume = GetAudioGroupGlobalVolume(AudioKeys.MUSIC);
+        float sfxVolume = GetAudioGroupGlobalVolume(AudioKeys.SFX);
+
+        SetAudioGroupVolume(AudioKeys.MUSIC, musicVolume, true);
+        SetAudioGroupVolume(AudioKeys.SFX, sfxVolume, true);
     }
 
     /// <summary>
@@ -112,14 +134,29 @@ public class AudioManager : Singleton<AudioManager>
     /// </summary>
     /// <param name="audioGroupKey">Name of the Audio Group</param>
     /// <param name="value">New volume value to be set. From 0.0 to 1.0</param>
-    public void SetAudioGroupVolume(string audioGroupKey, float value)
+    /// <param name="fromMute">If this function is called from a Mute Toggle. Default: false</param>
+    public void SetAudioGroupVolume(string audioGroupKey, float value, bool fromMute = false)
     {
         Dictionary<string, AudioSource> audioGroup = GetAudioGroup(audioGroupKey);
+        if (!fromMute)
+            SetAudioGroupGlobalVolume(audioGroupKey, value);
 
         foreach (KeyValuePair<string, AudioSource> kvp in audioGroup)
         {
             kvp.Value.volume = value;
         }
+    }
+
+
+    /// <summary>
+    /// Gets the Volume of a Specifc Audio Group based on the given key. Non-helper version.
+    /// </summary>
+    /// <param name="audioGroupKey">Name of the Audio Group</param>
+    /// <param name="forUI">If the Value to be retrieved is for UI purposes</param>
+    /// <returns></returns>
+    public float GetAudioGroupVolume(string audioGroupKey, bool forUI = false)
+    {
+        return GetAudioGroupGlobalVolume(audioGroupKey, forUI);
     }
 
     /// <summary>
@@ -223,6 +260,50 @@ public class AudioManager : Singleton<AudioManager>
         }
 
         return dict;
+    }
+
+    /// <summary>
+    /// Gets the Global Audio Group Volume
+    /// </summary>
+    /// <param name="audioGroupKey">Name of the Audio Group</param>
+    /// <param name="forUI">If the value to be retrieved is for UI purposes</param>
+    /// <returns></returns>
+    private float GetAudioGroupGlobalVolume(string audioGroupKey, bool forUI = false)
+    {
+        if (this.isMute && !forUI)
+            return 0f;
+
+        float volume = 1f;
+
+        switch (audioGroupKey)
+        {
+            case AudioKeys.SFX:
+                volume = this.globalSfxVolume;
+                break;
+            case AudioKeys.MUSIC:
+                volume = this.globalMusicVolume;
+                break;
+        }
+
+        return volume;
+    }
+
+    /// <summary>
+    /// Sets a new volume value of an Audio Group based on the given key
+    /// </summary>
+    /// <param name="audioGroupKey">Name of the Audio Group</param>
+    /// <param name="volume">New volume value to be set</param>
+    private void SetAudioGroupGlobalVolume(string audioGroupKey, float volume)
+    {
+        switch (audioGroupKey)
+        {
+            case AudioKeys.SFX:
+                this.globalSfxVolume = volume;
+                break;
+            case AudioKeys.MUSIC:
+                this.globalMusicVolume = volume;
+                break;
+        }
     }
     #endregion
 }
