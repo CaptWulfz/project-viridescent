@@ -8,7 +8,10 @@ public abstract class Item : ScriptableObject
     public string Name { get; set; }
 
     [field: SerializeField]
-    public bool isStackable { get; set; }
+    public bool IsStackable { get; set; }
+
+    [field: SerializeField]
+    public int MaxStacks { get; set; }
 
     [field: SerializeField]
     public int Value { get; set; }
@@ -16,4 +19,7 @@ public abstract class Item : ScriptableObject
     [field: SerializeField]
     [field: TextArea]
     public string Description { get; set; }
+
+    [field: SerializeField]
+    public Sprite Sprite { get; set; }
 }

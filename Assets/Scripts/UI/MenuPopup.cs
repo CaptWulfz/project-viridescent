@@ -13,7 +13,10 @@ public class MenuPopup : Popup
     
     public void OnShopButtonClicked()
     {
-        
+        ShopPopup popup = PopupManager.Instance.ShowPopup<ShopPopup>(PopupNames.SHOP_POPUP);
+        popup.Setup();
+        popup.Show();
+        Hide();
     }
     
     public void OnDiaryButtonClicked()
