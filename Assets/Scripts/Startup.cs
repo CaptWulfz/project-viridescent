@@ -22,25 +22,29 @@ public class Startup : MonoBehaviour
     {
         DataManager.Instance.Initialize();
         yield return new WaitUntil(() => { return DataManager.Instance.IsDone; });
-        this.splashScreen.SetLoadingProgress(0.25f);
+        this.splashScreen.SetLoadingProgress(0.2f);
 
         AudioManager.Instance.Initialize();
         yield return new WaitUntil(() => { return AudioManager.Instance.IsDone; });
-        this.splashScreen.SetLoadingProgress(0.50f);
+        this.splashScreen.SetLoadingProgress(0.4f);
 
         PopupManager.Instance.Initialize();
         yield return new WaitUntil(() => { return PopupManager.Instance.IsDone; });
-        this.splashScreen.SetLoadingProgress(0.75f);
+        this.splashScreen.SetLoadingProgress(0.6f);
 
-        GameManager.Instance.Initialize();
-        yield return new WaitUntil(() => { return GameManager.Instance.IsDone; });
+        InputManager.Instance.Initialize();
+        yield return new WaitUntil(() => { return InputManager.Instance.IsDone; });
+        this.splashScreen.SetLoadingProgress(0.8f);
+
+        GameLoaderManager.Instance.Initialize();
+        yield return new WaitUntil(() => { return GameLoaderManager.Instance.IsDone; });
         this.splashScreen.SetLoadingProgress(1.0f);
 
         yield return new WaitForSeconds(2f);
 
         this.splashScreen.Hide();
-        GameManager.Instance.ToggleMainHud(true);
-        GameManager.Instance.PlayMainTheme();
+        GameLoaderManager.Instance.ToggleMainHud(true);
+        GameLoaderManager.Instance.PlayMainTheme();
         this.gameObject.GetComponent<FocusHandler>().Initialize();
     }
 }

@@ -4,17 +4,9 @@ using UnityEngine;
 
 public abstract class Item : ScriptableObject
 {
+    [field: Header("Item Details")]
     [field: SerializeField]
     public string Name { get; set; }
-
-    [field: SerializeField]
-    public bool IsStackable { get; set; }
-
-    [field: SerializeField]
-    public int MaxStacks { get; set; }
-
-    [field: SerializeField]
-    public int Value { get; set; }
 
     [field: SerializeField]
     [field: TextArea]

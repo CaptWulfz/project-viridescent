@@ -118,6 +118,22 @@ public class AudioManager : Singleton<AudioManager>
         source.Play();
     }
 
+    /// <summary>
+    /// Plays a provided Audio Clip on a specific Audio Source from an Audio Group given their respecitve keys
+    /// </summary>
+    /// <param name="audioGroupKey">Name of the Audio Group</param>
+    /// <param name="sourceKey">Name of the Audio Source</param>
+    /// <param name="clip">Audio Clip to be played</param>
+    public void PlayAudioWithClip(string audioGroupKey, string sourceKey, AudioClip clip)
+    {
+        AudioSource source = GetAudioSource(audioGroupKey, sourceKey);
+        float volume = GetAudioGroupGlobalVolume(audioGroupKey);
+
+        source.clip = clip;
+        source.volume = volume;
+        source.Play();
+    }
+
     public void SetGlobalMute(bool mute)
     {
         this.isMute = mute;

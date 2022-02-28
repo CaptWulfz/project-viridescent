@@ -3,16 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameManager : Singleton<GameManager>
+public class GameLoaderManager : Singleton<GameLoaderManager>
 {
     private const string MAIN_HUD_PATH = "Prefabs/UI/MainHud";
-
-    private const string MAIN_SOURCE = "MAIN_SOURCE";
 
     private Canvas mainCanvas;
 
     private MainHud mainHud;
-    private AudioSource mainSource;
+    private GameCamera gameCamera;
 
     private bool isMainHudLoaded = false;
 
@@ -22,16 +20,13 @@ public class GameManager : Singleton<GameManager>
         get { return this.isDone; }
     }
 
-    private Controls controls;
-
     #region Initialization
     public void Initialize()
     {
         this.mainCanvas = GameObject.FindGameObjectWithTag(TagNames.MAIN_CANVAS).GetComponent<Canvas>();
-        this.mainSource = this.gameObject.AddComponent<AudioSource>();
-        this.controls = InputManager.Instance.GetControls();
-        this.controls.Test.Enable();
-        AudioManager.Instance.RegisterAudioSource(AudioKeys.MUSIC, MAIN_SOURCE, mainSource);
+        this.gameCamera = GameObject.FindGameObjectWithTag(TagNames.MAIN_CAMERA).GetComponent<GameCamera>();
+        this.gameCamera.Initialize();
+
         StartCoroutine(LoadFirstScene());
     }
 
@@ -61,9 +56,7 @@ public class GameManager : Singleton<GameManager>
     /// </summary>
     public void PlayMainTheme()
     {
-        AudioManager.Instance.PlayAudio(AudioKeys.MUSIC, MAIN_SOURCE, MusicKeys.MAIN_THEME);
-        AudioManager.Instance.SetAudioGroupVolume(AudioKeys.MUSIC, 0.5f);
-        AudioManager.Instance.ToggleAudioGroupLoop(AudioKeys.MUSIC, true);
+        this.gameCamera.PlayMainTheme();
     }
 
     /// <summary>
