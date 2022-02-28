@@ -11,7 +11,7 @@ public class ShopItem : MonoBehaviour
     [SerializeField] Text itemValue;
     [SerializeField] Text itemDescription;
     
-    public void SetupInfo(string itemName, Sprite itemImage, float itemValue, string itemDesc)
+    protected void SetupInfo(string itemName, Sprite itemImage, float itemValue, string itemDesc)
     {
         this.itemName.text = itemName;
         this.itemImage.sprite = itemImage;

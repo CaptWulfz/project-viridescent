@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 016034c02e49f684fadf52727a81da96, type: 3}
+  m_Name: GardenModels
+  m_EditorClassIdentifier: 
+  <FloraeReference>k__BackingField: {fileID: 2613846184576905079, guid: 7a011d584ae279341a1889165cadc4df, type: 3}
+  FloraeModelEntries:
+  - Florae: 0
+    FloraeModel: {fileID: 11400000, guid: c5001b45f1970c1408a17d59b30b59b7, type: 2}
+  - Florae: 1
+    FloraeModel: {fileID: 11400000, guid: 41e53c9d4cb006145936c436698ca4be, type: 2}
+  - Florae: 2
+    FloraeModel: {fileID: 11400000, guid: d9abefcad98e118488da6559f69f6529, type: 2}
+  - Florae: 3
+    FloraeModel: {fileID: 11400000, guid: 968f07e1a778aba4f9968d89758f269f, type: 2}
+  - Florae: 4
+    FloraeModel: {fileID: 11400000, guid: e919b2f66755c7449b915c662238af58, type: 2}
+  - Florae: 5
+    FloraeModel: {fileID: 11400000, guid: f5b9f208926aa054badee4f551bcdab9, type: 2}
+  - Florae: 6
+    FloraeModel: {fileID: 11400000, guid: 2814f46800b34b74db656c740561b975, type: 2}
+  - Florae: 7
+    FloraeModel: {fileID: 11400000, guid: 8c9f13f39f7c9694898700fff600d385, type: 2}
