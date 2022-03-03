@@ -16,7 +16,7 @@ MonoBehaviour:
   <Description>k__BackingField: I am a sweet flower who is also LGBT Friendly
   <Sprite>k__BackingField: {fileID: 21300000, guid: 25ec9f7bbff34dc4fa65e13b55b4f246, type: 3}
   FloraeStateAnimation: []
-  <WaterYield>k__BackingField: 25
+  <LeavesYield>k__BackingField: 10
   <TimeUntilNextYield>k__BackingField: 60
   <Sounds>k__BackingField:
   - Name: Happy Noises

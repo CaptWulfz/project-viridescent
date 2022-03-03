@@ -15,6 +15,8 @@ MonoBehaviour:
   <Name>k__BackingField: Phalaenopsis
   <Description>k__BackingField: I can't pronounce my name
   <Sprite>k__BackingField: {fileID: 21300000, guid: 57fdff4a272525543b825436aa400c69, type: 3}
-  <WaterYield>k__BackingField: 25
+  FloraeStateAnimation: []
+  <LeavesYield>k__BackingField: 40
   <TimeUntilNextYield>k__BackingField: 60
+  <Sounds>k__BackingField: []
   <SeasonType>k__BackingField: 0

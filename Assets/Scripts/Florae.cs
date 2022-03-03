@@ -22,6 +22,7 @@ public class Florae : MonoBehaviour
         this.spriteRenderer.sprite = this.floraeModel.Sprite;
         this.readyForYield = false;
         this.timeUntilNextYield = this.floraeModel.TimeUntilNextYield;
+        TouchHandler.Instance.RegisterStartTouchEvent(OnStartTouch);
         InitializeAudioSettings();
     }
 
@@ -57,5 +58,32 @@ public class Florae : MonoBehaviour
         }
     }
 
+    private void HandleTouchEvent()
+    {
+        if (this.readyForYield)
+        {
+            Debug.Log("Yield collected!");
+            this.readyForYield = false;
+            this.timeUntilNextYield = this.floraeModel.TimeUntilNextYield;
+        } else
+        {
 
+        }
+    }
+
+    #region Touch Handler Events
+    private void OnStartTouch(Vector2 position)
+    {
+        Vector2 tapPos = Camera.main.ScreenToWorldPoint(position);
+        RaycastHit2D hit = Physics2D.Raycast(tapPos, Vector2.zero);
+
+        if (hit.collider != null)
+        {
+            if (hit.collider.gameObject.GetInstanceID() == this.gameObject.GetInstanceID())
+            {
+                HandleTouchEvent();
+            }
+        }
+    }
+    #endregion
 }

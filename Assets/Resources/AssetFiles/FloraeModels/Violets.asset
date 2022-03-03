@@ -15,6 +15,8 @@ MonoBehaviour:
   <Name>k__BackingField: Violets
   <Description>k__BackingField: I like peace
   <Sprite>k__BackingField: {fileID: 21300000, guid: a7d7383a0ea8e5643b46970b62a1ae6f, type: 3}
-  <WaterYield>k__BackingField: 40
+  FloraeStateAnimation: []
+  <LeavesYield>k__BackingField: 25
   <TimeUntilNextYield>k__BackingField: 60
+  <Sounds>k__BackingField: []
   <SeasonType>k__BackingField: 0

@@ -9,7 +9,7 @@ public class FloraeModel : Item, ISeasonal, IAudible
     public FloraeStateAnimation[] FloraeStateAnimation;
 
     [field: SerializeField]
-    public int WaterYield { get; set; }
+    public int LeavesYield { get; set; }
 
     [field: SerializeField]
     public float TimeUntilNextYield { get; set; }

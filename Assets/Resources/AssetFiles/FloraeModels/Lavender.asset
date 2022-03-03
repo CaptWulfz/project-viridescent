@@ -16,6 +16,7 @@ MonoBehaviour:
   <Description>k__BackingField: I smell good
   <Sprite>k__BackingField: {fileID: 21300000, guid: 4bd362e40d1a6334e8106891fcf59f6c, type: 3}
   FloraeStateAnimation: []
-  <WaterYield>k__BackingField: 30
+  <LeavesYield>k__BackingField: 30
   <TimeUntilNextYield>k__BackingField: 60
+  <Sounds>k__BackingField: []
   <SeasonType>k__BackingField: 0
