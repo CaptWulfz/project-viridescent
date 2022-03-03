@@ -1,5 +1,5 @@
 public class EventNames
 {
-    public const string TEST_EVENT = "Test_Event";
-    public const string TEST_EVENT_2 = "Test_Event_2";
+    public const string ON_LEAVES_MODIFIED = "ON_LEAVES_MODIFIED";
+    public const string ON_WATER_MODIFIED = "ON_WATER_MODIFIED";
 }

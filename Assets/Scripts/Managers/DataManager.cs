@@ -30,6 +30,8 @@ public class DataManager : Singleton<DataManager>
         {
             LoadData();
         }
+
+        UserDataManager.Instance.Initialize();
     }
 
     /// <summary>

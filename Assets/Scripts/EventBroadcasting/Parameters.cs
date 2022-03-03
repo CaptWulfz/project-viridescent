@@ -40,3 +40,9 @@ public class Parameters
             return defaultValue;
     }
 }
+
+public class ParameterNames
+{
+    public const string LEAVES_VALUE = "leaves_value";
+    public const string WATER_VALUE = "water_value";
+}

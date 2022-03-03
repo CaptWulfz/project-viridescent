@@ -12,10 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b096eb8b3bc60a4f9dae2655519c6b1, type: 3}
   m_Name: DaisySeed
   m_EditorClassIdentifier: 
+  <Id>k__BackingField: seed_daisy
   <Name>k__BackingField: Daisy Seed
+  <Description>k__BackingField: This is Daisy
+  <Sprite>k__BackingField: {fileID: 21300000, guid: 36049c9d41a3b534598bbe2d6ce0d66a, type: 3}
   <IsStackable>k__BackingField: 1
   <MaxStacks>k__BackingField: 10
   <Value>k__BackingField: 50
-  <Description>k__BackingField: This is Daisy
-  <Sprite>k__BackingField: {fileID: 21300000, guid: 36049c9d41a3b534598bbe2d6ce0d66a, type: 3}
+  FloraeName: 0
   <SeasonType>k__BackingField: 0
