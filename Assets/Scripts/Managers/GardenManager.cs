@@ -38,7 +38,6 @@ public class GardenManager : Singleton<GardenManager>
         this.gardenModels.FloraeReference.gameObject.SetActive(false);
         this.activeFlorae = new List<Florae>();
         this.plantableSpots = new List<PlantableSpot>();
-
         this.isDone = true;
 
         //SpawnFlorae(FloraeName.DAISY);
@@ -60,6 +59,7 @@ public class GardenManager : Singleton<GardenManager>
         {
             FloraeModel modelToLoad = modelEntry.FloraeModel;
             Florae florae = Florae.Instantiate<Florae>(this.gardenModels.FloraeReference, this.plantableSpots[0].transform);
+            florae.gameObject.AddComponent<BoxCollider2D>();
             florae.transform.localPosition = Vector2.zero;
             florae.SetFloraeModel(modelToLoad);
             florae.Initialize();

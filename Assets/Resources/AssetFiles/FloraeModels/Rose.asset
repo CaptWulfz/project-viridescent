@@ -15,6 +15,8 @@ MonoBehaviour:
   <Name>k__BackingField: Rose
   <Description>k__BackingField: I'm a perfectionist
   <Sprite>k__BackingField: {fileID: 21300000, guid: be84a811db6adc5498657152f33f5862, type: 3}
-  <WaterYield>k__BackingField: 50
+  FloraeStateAnimation: []
+  <LeavesYield>k__BackingField: 50
   <TimeUntilNextYield>k__BackingField: 60
+  <Sounds>k__BackingField: []
   <SeasonType>k__BackingField: 0
