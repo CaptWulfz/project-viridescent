@@ -6,6 +6,9 @@ public abstract class Item : ScriptableObject
 {
     [field: Header("Item Details")]
     [field: SerializeField]
+    public string Id { get; set; }
+
+    [field: SerializeField]
     public string Name { get; set; }
 
     [field: SerializeField]

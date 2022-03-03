@@ -10,6 +10,14 @@ public class ShopItem : MonoBehaviour
     [SerializeField] Image itemImage;
     [SerializeField] Text itemValue;
     [SerializeField] Text itemDescription;
+
+    private InventoryItem inventoryItem;
+
+    public void Setup(InventoryItem item)
+    {
+        this.inventoryItem = item;
+        SetupInfo(item.Name, item.Sprite, item.Value, item.Description);
+    }
     
     protected void SetupInfo(string itemName, Sprite itemImage, float itemValue, string itemDesc)
     {
@@ -21,6 +29,16 @@ public class ShopItem : MonoBehaviour
 
     public void OnPurchaseButtonClicked()
     {
+        UserDataManager.Instance.TryPuchaseInventoryItem(this.inventoryItem, this.inventoryItem.Value, OnPurchaseSucces, OnPurchaseFailed);
+    }
 
+    private void OnPurchaseSucces()
+    {
+        Debug.Log("Purchase Success!");
+    }
+
+    private void OnPurchaseFailed()
+    {
+        Debug.Log("Purchase Failed!");
     }
 }

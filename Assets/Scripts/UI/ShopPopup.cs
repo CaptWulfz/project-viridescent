@@ -9,19 +9,19 @@ public class ShopPopup : Popup
     [SerializeField] ShopItems shopItems;
 
     [Header("Global Shop Item Components")]
+    [SerializeField] ShopItem shopItemRef;
     [SerializeField] Transform shopItemGroupRef;
 
     [Header("Seed Shop Item Objects")]
     [SerializeField] Transform seedShopItemsParent;
-    [SerializeField] SeedShopItem seedShopItemRef;
-
-    List<SeedShopItem> seedShopItems;
+    
+    List<ShopItem> seedShopItems;
 
     public void Setup()
     {
-        this.seedShopItems = new List<SeedShopItem>();
+        this.seedShopItems = new List<ShopItem>();
         this.shopItemGroupRef.gameObject.SetActive(false);
-        this.seedShopItemRef.gameObject.SetActive(false);
+        this.shopItemRef.gameObject.SetActive(false);
 
         Transform newItemGroup = null;
         foreach (SeedItem seedItem in this.shopItems.seedItems)
@@ -34,7 +34,7 @@ public class ShopPopup : Popup
                 newItemGroup.gameObject.SetActive(true);
             }
 
-            SeedShopItem newItem = Instantiate<SeedShopItem>(this.seedShopItemRef, newItemGroup);
+            ShopItem newItem = Instantiate<ShopItem>(this.shopItemRef, newItemGroup);
             newItem.Setup(seedItem);
             newItem.gameObject.SetActive(true);
             this.seedShopItems.Add(newItem);

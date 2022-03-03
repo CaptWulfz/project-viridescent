@@ -63,8 +63,10 @@ public class Florae : MonoBehaviour
         if (this.readyForYield)
         {
             Debug.Log("Yield collected!");
-            this.readyForYield = false;
-            this.timeUntilNextYield = this.floraeModel.TimeUntilNextYield;
+            UserDataManager.Instance.AddLeaves(this.floraeModel.LeavesYield, () => {
+                this.readyForYield = false;
+                this.timeUntilNextYield = this.floraeModel.TimeUntilNextYield;
+            });
         } else
         {
 

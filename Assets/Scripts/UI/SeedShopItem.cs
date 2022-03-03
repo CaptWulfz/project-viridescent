@@ -9,6 +9,7 @@ public class SeedShopItem : ShopItem
     public void Setup(SeedItem seedItem)
     {
         this.seedItemModel = seedItem;
-        SetupInfo(this.seedItemModel.Name, this.seedItemModel.Sprite, this.seedItemModel.Value, this.seedItemModel.Description);
+        
+        //SetupInfo((InventoryItem) this.seedItemModel, this.seedItemModel.Name, this.seedItemModel.Sprite, this.seedItemModel.Value, this.seedItemModel.Description);
     }
 }
